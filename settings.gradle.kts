@@ -21,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AliceBookstore"
+rootProject.name = "Alicesw"
 include(":plugin")

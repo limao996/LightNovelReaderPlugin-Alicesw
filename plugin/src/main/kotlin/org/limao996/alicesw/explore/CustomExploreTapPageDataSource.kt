@@ -1,4 +1,4 @@
-package org.limao996.alice_bookstore.explore
+package org.limao996.alicesw.explore
 
 import io.nightfish.lightnovelreader.api.explore.ExploreBooksRow
 import io.nightfish.lightnovelreader.api.explore.ExploreDisplayBook
@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import org.limao996.alice_bookstore.explore.AliceBookstoreExplorePageProvider.categories
+import org.limao996.alicesw.explore.AliceBookstoreExplorePageProvider.categories
 import kotlin.collections.emptyList
 
 class CustomExploreTapPageDataSource(

@@ -1,4 +1,4 @@
-package org.limao996.alice_bookstore.explore
+package org.limao996.alicesw.explore
 
 import androidx.core.net.toUri
 import io.nightfish.lightnovelreader.api.book.BookInformation
@@ -8,10 +8,9 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
-import org.limao996.alice_bookstore.AliceBookstoreBookInformation
-import org.limao996.alice_bookstore.HOST
-import org.limao996.alice_bookstore.utils.get
-import org.limao996.alice_bookstore.utils.infoLog
+import org.limao996.alicesw.AliceswBookInformation
+import org.limao996.alicesw.HOST
+import org.limao996.alicesw.utils.get
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -63,7 +62,7 @@ suspend fun loadCompleteBookList(
         item?.selectFirst(".two a")?.attr("href")?.removePrefix("/novel/")?.removeSuffix(".html")
     }?.map { id ->
         async {
-            AliceBookstoreBookInformation(id)
+            AliceswBookInformation(id)
         }
     } ?: emptyList()
 }

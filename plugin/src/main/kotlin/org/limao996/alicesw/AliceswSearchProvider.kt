@@ -1,4 +1,4 @@
-package org.limao996.alice_bookstore
+package org.limao996.alicesw
 
 import android.net.Uri
 import io.nightfish.lightnovelreader.api.book.MutableBookInformation
@@ -13,17 +13,14 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.isActive
 import kotlinx.coroutines.isActive
-import org.jsoup.select.Evaluator
-import org.limao996.alice_bookstore.utils.get
-import org.limao996.alice_bookstore.utils.infoLog
+import org.limao996.alicesw.utils.get
 import java.net.URLEncoder
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.time.Duration.Companion.seconds
 
-object AliceBookstoreSearchProvider : SearchProvider {
+object AliceswSearchProvider : SearchProvider {
     override val searchTypes: List<SearchType> = listOf(
         SearchType("_all", "模糊搜索".local(), "请输入关键词".local()),
         SearchType("title", "按书名搜索".local(), "请输入书本名称".local()),

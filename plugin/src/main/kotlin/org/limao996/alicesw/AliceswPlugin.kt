@@ -1,9 +1,8 @@
-package org.limao996.alice_bookstore
+package org.limao996.alicesw
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,8 +29,6 @@ import io.nightfish.lightnovelreader.api.ui.components.SettingsSwitchEntry
 import io.nightfish.lightnovelreader.api.userdata.UserDataDaoApi
 import io.nightfish.lightnovelreader.api.userdata.UserDataRepositoryApi
 import io.nightfish.lightnovelreader.api.web.WebBookDataSourceManagerApi
-import org.limao996.alice_bookstore.utils.UserAgentGenerator
-import org.limao996.alice_bookstore.utils.infoLog
 
 
 // 数据源主机地址
@@ -40,14 +37,14 @@ const val HOST = "https://www.alicesw.com"
 @Suppress("unused")
 @Plugin(
     version = BuildConfig.VERSION_CODE,
-    name = "AliceBookstore",
+    name = "Alicesw",
     versionName = BuildConfig.VERSION_NAME,
     author = "limao996",
     description = "数据源——爱丽丝书屋🔞",
-    updateUrl = "https://v6.gh-proxy.com/https://github.com/dmzz-yyhyy/LightNovelReader-PluginRepository/blob/main/data/com.example.plugin/",
+    updateUrl = "https://v6.gh-proxy.com/https://github.com/dmzz-yyhyy/LightNovelReader-PluginRepository/blob/main/data/org.limao996.alicesw/",
     apiVersion = 2
 )
-class AliceBookstorePlugin(
+class AliceswPlugin(
     val userDataDaoApi: UserDataDaoApi,
     val userDataRepositoryApi: UserDataRepositoryApi,
     val webBookDataSourceManagerApi: WebBookDataSourceManagerApi,

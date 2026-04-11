@@ -1,9 +1,8 @@
-package org.limao996.alice_bookstore.explore
+package org.limao996.alicesw.explore
 
 import io.nightfish.lightnovelreader.api.web.explore.ExploreExpandedPageDataSource
 import io.nightfish.lightnovelreader.api.web.explore.ExplorePageProvider
 import io.nightfish.lightnovelreader.api.web.explore.ExploreTapPageDataSource
-import org.limao996.alice_bookstore.utils.infoLog
 
 data class ExploreCategory(
     val name: String, val url: String, val supportOrder: Boolean, val supportMultiPage: Boolean
@@ -171,7 +170,7 @@ object AliceBookstoreExplorePageProvider : ExplorePageProvider.DefaultExplorePag
         run {
             val map = LinkedHashMap<String, ExploreExpandedPageDataSource>()
             categories.forEach {
-                map[it.name] = AliceBookstoreExploreExpandedPageDataSource(it)
+                map[it.name] = AliceswExploreExpandedPageDataSource(it)
             }
             map.toMap()
         }

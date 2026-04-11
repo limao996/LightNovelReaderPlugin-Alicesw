@@ -1,4 +1,4 @@
-package org.limao996.alice_bookstore
+package org.limao996.alicesw
 
 import androidx.core.net.toUri
 import io.nightfish.lightnovelreader.api.book.ChapterContent
@@ -7,9 +7,9 @@ import io.nightfish.lightnovelreader.api.book.MutableChapterContent
 import io.nightfish.lightnovelreader.api.content.builder.ContentBuilder
 import io.nightfish.lightnovelreader.api.content.builder.image
 import io.nightfish.lightnovelreader.api.content.builder.simpleText
-import org.limao996.alice_bookstore.utils.get
+import org.limao996.alicesw.utils.get
 
-suspend fun AliceBookstoreChapterContent(
+suspend fun AliceswChapterContent(
     chapterId: String, bookId: String, localBookDataSourceApi: LocalBookDataSourceApi
 ): ChapterContent {
 

@@ -1,4 +1,4 @@
-package org.limao996.alice_bookstore.utils
+package org.limao996.alicesw.utils
 
 import kotlin.random.Random
 

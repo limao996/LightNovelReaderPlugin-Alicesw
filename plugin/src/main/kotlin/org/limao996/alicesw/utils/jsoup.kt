@@ -1,4 +1,4 @@
-package org.limao996.alice_bookstore.utils
+package org.limao996.alicesw.utils
 
 import cxhttp.CxHttp
 import cxhttp.response.Response
@@ -9,7 +9,6 @@ import kotlinx.coroutines.sync.withPermit
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
-import java.nio.charset.Charset
 
 private val requestLimiter = Semaphore(3)
 

@@ -1,14 +1,14 @@
-package org.limao996.alice_bookstore
+package org.limao996.alicesw
 
 import androidx.core.net.toUri
 import io.nightfish.lightnovelreader.api.book.BookInformation
 import io.nightfish.lightnovelreader.api.book.MutableBookInformation
 import io.nightfish.lightnovelreader.api.book.WordCount
-import org.limao996.alice_bookstore.utils.get
-import org.limao996.alice_bookstore.utils.infoLog
+import org.limao996.alicesw.utils.get
+import org.limao996.alicesw.utils.infoLog
 import java.time.LocalDateTime
 
-suspend fun AliceBookstoreBookInformation(
+suspend fun AliceswBookInformation(
     id: String
 ): BookInformation {
     val soup = get("$HOST/novel/$id.html")

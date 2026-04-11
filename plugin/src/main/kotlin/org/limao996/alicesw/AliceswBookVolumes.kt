@@ -1,13 +1,11 @@
-package org.limao996.alice_bookstore
+package org.limao996.alicesw
 
 import io.nightfish.lightnovelreader.api.book.BookVolumes
 import io.nightfish.lightnovelreader.api.book.ChapterInformation
 import io.nightfish.lightnovelreader.api.book.Volume
-import org.limao996.alice_bookstore.utils.get
-import org.limao996.alice_bookstore.utils.infoLog
-import kotlin.math.log
+import org.limao996.alicesw.utils.get
 
-suspend fun AliceBookstoreBookVolumes(id: String): BookVolumes {
+suspend fun AliceswBookVolumes(id: String): BookVolumes {
     val soup = get("$HOST/other/chapters/id/$id.html")
 
     val items = soup?.selectFirst(".section-list")?.children()

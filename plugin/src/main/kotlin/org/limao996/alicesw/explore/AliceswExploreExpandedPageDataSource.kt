@@ -1,4 +1,4 @@
-package org.limao996.alice_bookstore.explore
+package org.limao996.alicesw.explore
 
 import io.nightfish.lightnovelreader.api.util.local
 import io.nightfish.lightnovelreader.api.web.explore.ExploreExpandedPageDataSource
@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.isActive
-import org.limao996.alice_bookstore.explore.ExploreCategory.Order
+import org.limao996.alicesw.explore.ExploreCategory.Order
 import kotlin.time.Duration.Companion.seconds
 
-class AliceBookstoreExploreExpandedPageDataSource(val category: ExploreCategory) :
+class AliceswExploreExpandedPageDataSource(val category: ExploreCategory) :
     ExploreExpandedPageDataSource {
     override val title = category.name
     override val filters: List<SingleChoiceFilter> = if (category.supportOrder) listOf(

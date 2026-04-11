@@ -1,8 +1,5 @@
-package org.limao996.alice_bookstore
+package org.limao996.alicesw
 
-import androidx.navigation.NavController
-import androidx.navigation.NavDeepLink
-import androidx.navigation.Navigator
 import cxhttp.CxHttp
 import cxhttp.CxHttpHelper
 import io.nightfish.lightnovelreader.api.book.BookRepositoryApi
@@ -16,9 +13,6 @@ import io.nightfish.lightnovelreader.api.util.Cache
 import io.nightfish.lightnovelreader.api.web.WebBookDataSource
 import io.nightfish.lightnovelreader.api.web.WebBookDataSourceManagerApi
 import io.nightfish.lightnovelreader.api.web.WebDataSource
-import io.nightfish.lightnovelreader.api.web.explore.ExploreExpandedPageDataSource
-import io.nightfish.lightnovelreader.api.web.explore.ExplorePageProvider
-import io.nightfish.lightnovelreader.api.web.explore.ExploreTapPageDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -28,15 +22,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.limao996.alice_bookstore.explore.AliceBookstoreExplorePageProvider
-import org.limao996.alice_bookstore.utils.KotlinSerializationCborConverter
-import org.limao996.alice_bookstore.utils.UserAgentGenerator
+import org.limao996.alicesw.explore.AliceBookstoreExplorePageProvider
+import org.limao996.alicesw.utils.KotlinSerializationCborConverter
+import org.limao996.alicesw.utils.UserAgentGenerator
 
 @Suppress("unused")
 @WebDataSource(
-    name = "爱丽丝书屋🔞", provider = "limao996 from www.alicesw.com"
+    name = "爱丽丝书屋🔞", provider = "limao996 from alicesw.com"
 )
-class AliceBookstoreWebDataSource(
+class AliceswWebDataSource(
     val userDataDaoApi: UserDataDaoApi,
     val userDataRepositoryApi: UserDataRepositoryApi,
     val webBookDataSourceManagerApi: WebBookDataSourceManagerApi,
@@ -46,7 +40,7 @@ class AliceBookstoreWebDataSource(
     val bookshelfRepositoryApi: BookshelfRepositoryApi,
 ) : WebBookDataSource {
     // 数据源唯一id
-    override val id = "org.limao996.alice_bookstore".hashCode()
+    override val id = "org.limao996.alicesw".hashCode()
 
     // 协程作用域
     private var coroutineScope = CoroutineScope(Dispatchers.IO)
@@ -97,16 +91,15 @@ class AliceBookstoreWebDataSource(
 
     override val explorePageProvider = AliceBookstoreExplorePageProvider
 
-    override val searchProvider = AliceBookstoreSearchProvider
+    override val searchProvider = AliceswSearchProvider
 
-    override suspend fun getBookInformation(id: String) =
-        ifCache(id) { AliceBookstoreBookInformation(id) }
+    override suspend fun getBookInformation(id: String) = ifCache(id) { AliceswBookInformation(id) }
 
-    override suspend fun getBookVolumes(id: String) = ifCache(id) { AliceBookstoreBookVolumes(id) }
+    override suspend fun getBookVolumes(id: String) = ifCache(id) { AliceswBookVolumes(id) }
 
     override suspend fun getChapterContent(chapterId: String, bookId: String) =
         ifCache(chapterId + bookId) {
-            AliceBookstoreChapterContent(chapterId, bookId, localBookDataSourceApi)
+            AliceswChapterContent(chapterId, bookId, localBookDataSourceApi)
         }
 
 }
