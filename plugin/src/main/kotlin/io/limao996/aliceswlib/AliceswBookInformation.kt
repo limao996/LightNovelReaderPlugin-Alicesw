@@ -1,11 +1,11 @@
-package org.limao996.alicesw
+package io.limao996.aliceswlib
 
 import androidx.core.net.toUri
 import io.nightfish.lightnovelreader.api.book.BookInformation
 import io.nightfish.lightnovelreader.api.book.MutableBookInformation
 import io.nightfish.lightnovelreader.api.book.WordCount
-import org.limao996.alicesw.utils.get
-import org.limao996.alicesw.utils.infoLog
+import io.limao996.aliceswlib.utils.get
+import io.limao996.aliceswlib.utils.infoLog
 import java.time.LocalDateTime
 
 suspend fun AliceswBookInformation(

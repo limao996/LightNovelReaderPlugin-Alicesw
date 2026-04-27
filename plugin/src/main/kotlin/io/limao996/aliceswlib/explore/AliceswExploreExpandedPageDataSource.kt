@@ -1,4 +1,4 @@
-package org.limao996.alicesw.explore
+package io.limao996.aliceswlib.explore
 
 import io.nightfish.lightnovelreader.api.util.local
 import io.nightfish.lightnovelreader.api.web.explore.ExploreExpandedPageDataSource
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.isActive
-import org.limao996.alicesw.explore.ExploreCategory.Order
+import io.limao996.aliceswlib.explore.ExploreCategory.Order
 import kotlin.time.Duration.Companion.seconds
 
 class AliceswExploreExpandedPageDataSource(val category: ExploreCategory) :

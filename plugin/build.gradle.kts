@@ -9,15 +9,15 @@ plugins {
 }
 
 android {
-    namespace = "org.limao996.alicesw"
+    namespace = "io.limao996.aliceswlib"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "org.limao996.alicesw"
+        applicationId = "io.limao996.aliceswlib"
         minSdk = 24
         targetSdk = 36
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
     }
     buildFeatures {
         compose = true
@@ -67,14 +67,14 @@ dependencies {
     compileOnly(platform(libs.compose.bom))
     compileOnly(libs.compose.material3)
     compileOnly(libs.lightnovelreader.api)
-    compileOnly(libs.kotlinx.serialization.cbor)
-    compileOnly(libs.kotlinx.serialization.json)
-    compileOnly(libs.cxhttp)
-    compileOnly(libs.okhttp3.okhttp)
-    compileOnly(libs.okhttp3.logging.interceptor)
-    compileOnly(libs.jsoup)
 
     // 插件依赖
+    implementation(libs.cxhttp)
+    implementation(libs.okhttp3.okhttp)
+    implementation(libs.okhttp3.logging.interceptor)
+    implementation(libs.jsoup)
+    implementation(libs.kotlinx.serialization.cbor)
+    implementation(libs.kotlinx.serialization.json)
 
 }
 

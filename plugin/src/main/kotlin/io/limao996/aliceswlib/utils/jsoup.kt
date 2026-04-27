@@ -1,4 +1,4 @@
-package org.limao996.alicesw.utils
+package io.limao996.aliceswlib.utils
 
 import cxhttp.CxHttp
 import cxhttp.response.Response

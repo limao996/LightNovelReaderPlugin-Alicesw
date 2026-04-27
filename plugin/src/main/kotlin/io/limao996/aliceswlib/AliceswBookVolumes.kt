@@ -1,9 +1,9 @@
-package org.limao996.alicesw
+package io.limao996.aliceswlib
 
 import io.nightfish.lightnovelreader.api.book.BookVolumes
 import io.nightfish.lightnovelreader.api.book.ChapterInformation
 import io.nightfish.lightnovelreader.api.book.Volume
-import org.limao996.alicesw.utils.get
+import io.limao996.aliceswlib.utils.get
 
 suspend fun AliceswBookVolumes(id: String): BookVolumes {
     val soup = get("$HOST/other/chapters/id/$id.html")
@@ -12,7 +12,7 @@ suspend fun AliceswBookVolumes(id: String): BookVolumes {
     val chapters = items?.map {
         val doc = it.child(0)
         val id = Regex("/book/[^/]+/([^/]+)\\.html").find(
-            doc?.attr("href") ?: ""
+            doc.attr("href") ?: ""
         )?.groupValues?.get(1) ?: ""
         ChapterInformation(
             id = id,

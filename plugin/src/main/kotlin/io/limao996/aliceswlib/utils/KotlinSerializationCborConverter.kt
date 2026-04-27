@@ -1,6 +1,6 @@
 @file:Suppress("OPT_IN_USAGE")
 
-package org.limao996.alicesw.utils
+package io.limao996.aliceswlib.utils
 
 import cxhttp.converter.CxHttpConverter
 import cxhttp.response.CxHttpResult

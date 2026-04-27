@@ -1,4 +1,4 @@
-package org.limao996.alicesw
+package io.limao996.aliceswlib
 
 import cxhttp.CxHttp
 import cxhttp.CxHttpHelper
@@ -22,13 +22,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.limao996.alicesw.explore.AliceswExplorePageProvider
-import org.limao996.alicesw.utils.KotlinSerializationCborConverter
-import org.limao996.alicesw.utils.UserAgentGenerator
+import io.limao996.aliceswlib.explore.AliceswExplorePageProvider
+import io.limao996.aliceswlib.utils.KotlinSerializationCborConverter
+import io.limao996.aliceswlib.utils.UserAgentGenerator
 
 @Suppress("unused")
 @WebDataSource(
-    name = "爱丽丝书屋🔞", provider = "limao996 from alicesw.com"
+    name = "爱丽丝书屋🔞", provider = "AliceswLib from alicesw.com"
 )
 class AliceswWebDataSource(
     val userDataDaoApi: UserDataDaoApi,
@@ -40,7 +40,7 @@ class AliceswWebDataSource(
     val bookshelfRepositoryApi: BookshelfRepositoryApi,
 ) : WebBookDataSource {
     // 数据源唯一id
-    override val id = "org.limao996.alicesw".hashCode()
+    override val id = "io.limao996.aliceswlib".hashCode()
 
     // 协程作用域
     private var coroutineScope = CoroutineScope(Dispatchers.IO)

@@ -1,4 +1,4 @@
-package org.limao996.alicesw.explore
+package io.limao996.aliceswlib.explore
 
 import io.nightfish.lightnovelreader.api.web.explore.ExploreExpandedPageDataSource
 import io.nightfish.lightnovelreader.api.web.explore.ExplorePageProvider

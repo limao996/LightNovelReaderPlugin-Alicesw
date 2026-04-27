@@ -1,4 +1,4 @@
-package org.limao996.alicesw
+package io.limao996.aliceswlib
 
 import android.net.Uri
 import io.nightfish.lightnovelreader.api.book.MutableBookInformation
@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.isActive
-import org.limao996.alicesw.utils.get
+import io.limao996.aliceswlib.utils.get
 import java.net.URLEncoder
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

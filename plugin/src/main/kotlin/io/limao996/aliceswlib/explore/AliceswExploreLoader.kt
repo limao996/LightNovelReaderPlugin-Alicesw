@@ -1,4 +1,4 @@
-package org.limao996.alicesw.explore
+package io.limao996.aliceswlib.explore
 
 import androidx.core.net.toUri
 import io.nightfish.lightnovelreader.api.book.BookInformation
@@ -8,9 +8,9 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
-import org.limao996.alicesw.AliceswBookInformation
-import org.limao996.alicesw.HOST
-import org.limao996.alicesw.utils.get
+import io.limao996.aliceswlib.AliceswBookInformation
+import io.limao996.aliceswlib.HOST
+import io.limao996.aliceswlib.utils.get
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 

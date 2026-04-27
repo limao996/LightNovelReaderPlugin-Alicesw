@@ -1,4 +1,4 @@
-package org.limao996.alicesw
+package io.limao996.aliceswlib
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -37,7 +37,7 @@ const val HOST = "https://www.alicesw.com"
 @Suppress("unused")
 @Plugin(
     version = BuildConfig.VERSION_CODE,
-    name = "Alicesw",
+    name = "AliceswLib",
     versionName = BuildConfig.VERSION_NAME,
     author = "limao996",
     description = "数据源——爱丽丝书屋🔞",
@@ -59,29 +59,6 @@ class AliceswPlugin(
     @Composable
     override fun PageContent(paddingValues: PaddingValues) {
         val content = LocalContext.current
-        Column(
-            modifier = Modifier
-                .padding(paddingValues)
-                .clip(RoundedCornerShape(16.dp)),
-            verticalArrangement = Arrangement.spacedBy(2.dp)
-        ) {
-            val checked by userDataRepositoryApi.booleanUserData("TestBooleanUserData")
-                .getFlowWithDefault(true).collectAsState(true)
-            SettingsSwitchEntry(
-                modifier = Modifier.background(colorScheme.surfaceContainer),
-                title = "测试选项",
-                description = "Ciallo～(∠・ω< )⌒★",
-                checked = checked,
-                booleanUserData = userDataRepositoryApi.booleanUserData("TestBooleanUserData")
-            )
-            SettingsClickableEntry(
-                modifier = Modifier.background(colorScheme.surfaceContainer),
-                title = "测试点击",
-                description = "0721",
-                onClick = {
-                    Toast.makeText(content, "带面纸了吗", Toast.LENGTH_LONG).show()
-                })
-        }
     }
 }
 
