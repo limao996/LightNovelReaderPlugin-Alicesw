@@ -1,34 +1,32 @@
 package io.limao996.aliceswlib
 
+import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.widget.Toast
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import android.graphics.Bitmap
+import android.webkit.JavascriptInterface
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
+import io.limao996.aliceswlib.utils.UserAgentGenerator
+import io.limao996.aliceswlib.utils.infoLog
 import io.nightfish.lightnovelreader.api.book.BookRepositoryApi
 import io.nightfish.lightnovelreader.api.book.LocalBookDataSourceApi
 import io.nightfish.lightnovelreader.api.bookshelf.BookshelfRepositoryApi
 import io.nightfish.lightnovelreader.api.plugin.LightNovelReaderPlugin
 import io.nightfish.lightnovelreader.api.plugin.Plugin
 import io.nightfish.lightnovelreader.api.text.TextProcessingRepositoryApi
-import io.nightfish.lightnovelreader.api.ui.components.SettingsClickableEntry
-import io.nightfish.lightnovelreader.api.ui.components.SettingsSwitchEntry
 import io.nightfish.lightnovelreader.api.userdata.UserDataDaoApi
 import io.nightfish.lightnovelreader.api.userdata.UserDataRepositoryApi
 import io.nightfish.lightnovelreader.api.web.WebBookDataSourceManagerApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.jsoup.nodes.Entities.unescape
 
 
 // 数据源主机地址
@@ -53,6 +51,7 @@ class AliceswPlugin(
     val bookRepositoryApi: BookRepositoryApi,
     val bookshelfRepositoryApi: BookshelfRepositoryApi,
 ) : LightNovelReaderPlugin {
+
     override fun onLoad() {
     }
 

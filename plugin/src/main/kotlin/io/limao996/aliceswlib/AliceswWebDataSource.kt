@@ -1,5 +1,6 @@
 package io.limao996.aliceswlib
 
+import android.content.Context
 import cxhttp.CxHttp
 import cxhttp.CxHttpHelper
 import io.nightfish.lightnovelreader.api.book.BookRepositoryApi
@@ -31,6 +32,7 @@ import io.limao996.aliceswlib.utils.UserAgentGenerator
     name = "爱丽丝书屋🔞", provider = "AliceswLib from alicesw.com"
 )
 class AliceswWebDataSource(
+    val context: Context,
     val userDataDaoApi: UserDataDaoApi,
     val userDataRepositoryApi: UserDataRepositoryApi,
     val webBookDataSourceManagerApi: WebBookDataSourceManagerApi,
@@ -99,7 +101,7 @@ class AliceswWebDataSource(
 
     override suspend fun getChapterContent(chapterId: String, bookId: String) =
         ifCache(chapterId + bookId) {
-            AliceswChapterContent(chapterId, bookId, localBookDataSourceApi)
+            AliceswChapterContent(context, chapterId, bookId, localBookDataSourceApi)
         }
 
 }

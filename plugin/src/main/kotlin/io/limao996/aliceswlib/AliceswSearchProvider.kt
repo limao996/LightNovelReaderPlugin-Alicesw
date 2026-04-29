@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.isActive
-import io.limao996.aliceswlib.utils.get
+import io.limao996.aliceswlib.utils.httpGet
 import java.net.URLEncoder
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -34,7 +34,7 @@ object AliceswSearchProvider : SearchProvider {
         val q = URLEncoder.encode(keyword, "utf-8")
         var currentPage = 0
         while (currentCoroutineContext().isActive) {
-            val soup = get("$HOST/search.html?q=$q&p=${++currentPage}&f=${searchType.type}")
+            val soup = httpGet("$HOST/search.html?q=$q&p=${++currentPage}&f=${searchType.type}")
             if (soup == null) {
                 emit(SearchResult.Error("网页请求失败！"))
                 return@flow

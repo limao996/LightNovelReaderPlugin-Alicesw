@@ -3,10 +3,10 @@ package io.limao996.aliceswlib
 import io.nightfish.lightnovelreader.api.book.BookVolumes
 import io.nightfish.lightnovelreader.api.book.ChapterInformation
 import io.nightfish.lightnovelreader.api.book.Volume
-import io.limao996.aliceswlib.utils.get
+import io.limao996.aliceswlib.utils.httpGet
 
 suspend fun AliceswBookVolumes(id: String): BookVolumes {
-    val soup = get("$HOST/other/chapters/id/$id.html")
+    val soup = httpGet("$HOST/other/chapters/id/$id.html")
 
     val items = soup?.selectFirst(".section-list")?.children()
     val chapters = items?.map {

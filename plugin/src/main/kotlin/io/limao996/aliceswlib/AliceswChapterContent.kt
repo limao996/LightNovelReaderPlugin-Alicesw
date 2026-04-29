@@ -1,23 +1,26 @@
 package io.limao996.aliceswlib
 
+import android.content.Context
 import androidx.core.net.toUri
+import io.limao996.aliceswlib.utils.browserGet
 import io.nightfish.lightnovelreader.api.book.ChapterContent
 import io.nightfish.lightnovelreader.api.book.LocalBookDataSourceApi
 import io.nightfish.lightnovelreader.api.book.MutableChapterContent
 import io.nightfish.lightnovelreader.api.content.builder.ContentBuilder
 import io.nightfish.lightnovelreader.api.content.builder.image
 import io.nightfish.lightnovelreader.api.content.builder.simpleText
-import io.limao996.aliceswlib.utils.get
 
 suspend fun AliceswChapterContent(
-    chapterId: String, bookId: String, localBookDataSourceApi: LocalBookDataSourceApi
+    context: Context,
+    chapterId: String,
+    bookId: String,
+    localBookDataSourceApi: LocalBookDataSourceApi
 ): ChapterContent {
 
     val volumeId = localBookDataSourceApi.getBookVolumes(bookId)?.volumes?.find {
         it.chapters.find { chapter -> chapter.id == chapterId } != null
     }?.volumeId ?: return ChapterContent.empty(chapterId)
-
-    val soup = get("$HOST/book/$volumeId/$chapterId.html", true)
+    val soup = browserGet(context, "$HOST/book/$volumeId/$chapterId.html", true)
     val title = soup?.selectFirst(".j_chapterName")?.text() ?: "未知"
     val content = soup?.selectFirst(".read-content")?.children()
 

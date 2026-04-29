@@ -4,14 +4,14 @@ import androidx.core.net.toUri
 import io.nightfish.lightnovelreader.api.book.BookInformation
 import io.nightfish.lightnovelreader.api.book.MutableBookInformation
 import io.nightfish.lightnovelreader.api.book.WordCount
-import io.limao996.aliceswlib.utils.get
+import io.limao996.aliceswlib.utils.httpGet
 import io.limao996.aliceswlib.utils.infoLog
 import java.time.LocalDateTime
 
 suspend fun AliceswBookInformation(
     id: String
 ): BookInformation {
-    val soup = get("$HOST/novel/$id.html")
+    val soup = httpGet("$HOST/novel/$id.html")
 
     val detailBox = soup?.selectFirst(".detail-box")
 
@@ -30,7 +30,6 @@ suspend fun AliceswBookInformation(
     val subTitle = detailBox?.selectFirst(".fix")?.child(3)?.text() ?: ""
     val state = detailBox?.selectFirst(".fix")?.child(5)?.text() ?: ""
     val wordCountText = detailBox?.selectFirst(".fix")?.child(4)?.text() ?: ""
-    infoLog(wordCountText)
     val wordCount = Regex("字数：(\\S+)").find(wordCountText)?.groupValues?.get(1)?.replace(",", "")
         ?.removeSuffix("万")?.toFloatOrNull()?.times(10000)?.toInt() ?: 0
 

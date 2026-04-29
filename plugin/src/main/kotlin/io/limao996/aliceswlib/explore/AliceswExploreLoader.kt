@@ -10,7 +10,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import io.limao996.aliceswlib.AliceswBookInformation
 import io.limao996.aliceswlib.HOST
-import io.limao996.aliceswlib.utils.get
+import io.limao996.aliceswlib.utils.httpGet
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -19,7 +19,7 @@ suspend fun loadSimpleBookList(
     page: Int = 1,
     order: ExploreCategory.Order = ExploreCategory.Order.UpdateTime
 ): List<BookInformation> {
-    val soup = get(HOST + category.getUrl(page, order), true)
+    val soup = httpGet(HOST + category.getUrl(page, order), true)
     return soup?.selectFirst(".rec_rullist")?.children()?.map { item ->
         val titleDoc = item?.selectFirst(".two a")
         val title = titleDoc?.text()?.removeSuffix("全文阅读") ?: ""
@@ -56,7 +56,7 @@ suspend fun loadCompleteBookList(
     page: Int = 1,
     order: ExploreCategory.Order = ExploreCategory.Order.UpdateTime
 ): List<Deferred<BookInformation>> = withContext(Dispatchers.IO) {
-    val soup = get(HOST + category.getUrl(page, order), true)
+    val soup = httpGet(HOST + category.getUrl(page, order), true)
 
     soup?.selectFirst(".rec_rullist")?.children()?.mapNotNull { item ->
         item?.selectFirst(".two a")?.attr("href")?.removePrefix("/novel/")?.removeSuffix(".html")
